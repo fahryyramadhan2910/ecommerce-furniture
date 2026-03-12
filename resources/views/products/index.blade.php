@@ -18,7 +18,7 @@
                   {{ !request('category') ? 'bg-primary-600 text-white shadow-md' : 'bg-white border border-warm-200 text-warm-700 hover:border-primary-400 hover:text-primary-600' }}">
             Semua ({{ \App\Models\Product::count() }})
         </a>
-        @foreach(['chairs' => '🪑 Kursi', 'tables' => '🪵 Meja', 'sofas' => '🛋️ Sofa'] as $key => $label)
+        @foreach(['chairs' => '🪑 Kursi', 'tables' => '🪵 Meja', 'sofas' => '🛋️ Sofa', 'beds' => '🛏️ Tempat Tidur'] as $key => $label)
         <a href="{{ route('products.index', ['category' => $key]) }}"
            class="px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200
                   {{ request('category') == $key ? 'bg-primary-600 text-white shadow-md' : 'bg-white border border-warm-200 text-warm-700 hover:border-primary-400 hover:text-primary-600' }}">

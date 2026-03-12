@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Luxe Furniture — Premium Home Furniture')</title>
-    <meta name="description" content="@yield('meta_description', 'Temukan koleksi furnitur premium untuk rumah impian Anda. Kualitas terbaik, desain elegan.')">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
+    <title><?php echo $__env->yieldContent('title', 'Luxe Furniture — Premium Home Furniture'); ?></title>
+    <meta name="description" content="<?php echo $__env->yieldContent('meta_description', 'Temukan koleksi furnitur premium untuk rumah impian Anda. Kualitas terbaik, desain elegan.'); ?>">
+    <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 </head>
 <body class="bg-warm-50" x-data>
 
-    {{-- NAVBAR --}}
+    
     <nav class="sticky top-0 z-50 bg-glass border-b border-warm-200 shadow-sm"
          x-data="{ open: false }">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
 
-                {{-- Logo --}}
-                <a href="{{ route('home') }}" class="flex items-center gap-2">
+                
+                <a href="<?php echo e(route('home')); ?>" class="flex items-center gap-2">
                     <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center shadow">
                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -27,33 +27,34 @@
                     <span class="font-serif text-xl font-bold text-warm-900">Luxe<span class="text-primary-600">Furniture</span></span>
                 </a>
 
-                {{-- Desktop Nav --}}
+                
                 <div class="hidden md:flex items-center gap-6">
-                    <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'text-primary-600 font-semibold' : '' }}">Beranda</a>
-                    <a href="{{ route('products.index') }}" class="nav-link {{ request()->routeIs('products.*') ? 'text-primary-600 font-semibold' : '' }}">Produk</a>
-                    <a href="{{ route('products.index', ['category' => 'chairs']) }}" class="nav-link">Kursi</a>
-                    <a href="{{ route('products.index', ['category' => 'tables']) }}" class="nav-link">Meja</a>
-                    <a href="{{ route('products.index', ['category' => 'sofas']) }}" class="nav-link">Sofa</a>
-                    <a href="{{ route('products.index', ['category' => 'beds']) }}" class="nav-link">Tempat Tidur</a>
+                    <a href="<?php echo e(route('home')); ?>" class="nav-link <?php echo e(request()->routeIs('home') ? 'text-primary-600 font-semibold' : ''); ?>">Beranda</a>
+                    <a href="<?php echo e(route('products.index')); ?>" class="nav-link <?php echo e(request()->routeIs('products.*') ? 'text-primary-600 font-semibold' : ''); ?>">Produk</a>
+                    <a href="<?php echo e(route('products.index', ['category' => 'chairs'])); ?>" class="nav-link">Kursi</a>
+                    <a href="<?php echo e(route('products.index', ['category' => 'tables'])); ?>" class="nav-link">Meja</a>
+                    <a href="<?php echo e(route('products.index', ['category' => 'sofas'])); ?>" class="nav-link">Sofa</a>
+                    <a href="<?php echo e(route('products.index', ['category' => 'beds'])); ?>" class="nav-link">Tempat Tidur</a>
                 </div>
 
-                {{-- Cart Icon --}}
+                
                 <div class="flex items-center gap-3">
-                    <a href="{{ route('cart.index') }}"
+                    <a href="<?php echo e(route('cart.index')); ?>"
                        class="relative p-2 text-warm-700 hover:text-primary-600 transition-colors">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
                         </svg>
-                        @php $cartCount = count(session('cart', [])); @endphp
-                        @if($cartCount > 0)
+                        <?php $cartCount = count(session('cart', [])); ?>
+                        <?php if($cartCount > 0): ?>
                         <span class="absolute -top-1 -right-1 w-5 h-5 bg-primary-600 text-white text-xs font-bold rounded-full flex items-center justify-center">
-                            {{ $cartCount }}
+                            <?php echo e($cartCount); ?>
+
                         </span>
-                        @endif
+                        <?php endif; ?>
                     </a>
 
-                    {{-- Mobile hamburger --}}
+                    
                     <button class="md:hidden p-2 text-warm-700" @click="open = !open">
                         <svg x-show="!open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -65,20 +66,20 @@
                 </div>
             </div>
 
-            {{-- Mobile menu --}}
+            
             <div x-show="open" x-transition class="md:hidden border-t border-warm-200 py-3 space-y-1">
-                <a href="{{ route('home') }}" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Beranda</a>
-                <a href="{{ route('products.index') }}" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Semua Produk</a>
-                <a href="{{ route('products.index', ['category' => 'chairs']) }}" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Kursi</a>
-                <a href="{{ route('products.index', ['category' => 'tables']) }}" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Meja</a>
-                <a href="{{ route('products.index', ['category' => 'sofas']) }}" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Sofa</a>
-                <a href="{{ route('products.index', ['category' => 'beds']) }}" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Tempat Tidur</a>
+                <a href="<?php echo e(route('home')); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Beranda</a>
+                <a href="<?php echo e(route('products.index')); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Semua Produk</a>
+                <a href="<?php echo e(route('products.index', ['category' => 'chairs'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Kursi</a>
+                <a href="<?php echo e(route('products.index', ['category' => 'tables'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Meja</a>
+                <a href="<?php echo e(route('products.index', ['category' => 'sofas'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Sofa</a>
+                <a href="<?php echo e(route('products.index', ['category' => 'beds'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Tempat Tidur</a>
             </div>
         </div>
     </nav>
 
-    {{-- Flash messages --}}
-    @if(session('success'))
+    
+    <?php if(session('success')): ?>
     <div class="fixed top-20 right-4 z-50 max-w-sm animate-slide-up"
          x-data="{ show: true }" x-show="show" x-transition
          x-init="setTimeout(() => show = false, 4000)">
@@ -86,12 +87,12 @@
             <svg class="w-5 h-5 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
             </svg>
-            <span class="text-sm font-medium">{{ session('success') }}</span>
+            <span class="text-sm font-medium"><?php echo e(session('success')); ?></span>
         </div>
     </div>
-    @endif
+    <?php endif; ?>
 
-    @if(session('error'))
+    <?php if(session('error')): ?>
     <div class="fixed top-20 right-4 z-50 max-w-sm animate-slide-up"
          x-data="{ show: true }" x-show="show" x-transition
          x-init="setTimeout(() => show = false, 5000)">
@@ -99,17 +100,17 @@
             <svg class="w-5 h-5 text-red-600 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
             </svg>
-            <span class="text-sm font-medium">{{ session('error') }}</span>
+            <span class="text-sm font-medium"><?php echo e(session('error')); ?></span>
         </div>
     </div>
-    @endif
+    <?php endif; ?>
 
-    {{-- Main Content --}}
+    
     <main>
-        @yield('content')
+        <?php echo $__env->yieldContent('content'); ?>
     </main>
 
-    {{-- FOOTER --}}
+    
     <footer class="bg-dark text-warm-300 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
@@ -130,11 +131,11 @@
                 <div>
                     <h4 class="text-white font-semibold mb-4">Produk</h4>
                     <ul class="space-y-2 text-warm-400">
-                        <li><a href="{{ route('products.index', ['category' => 'chairs']) }}" class="hover:text-primary-400 transition">Kursi</a></li>
-                        <li><a href="{{ route('products.index', ['category' => 'tables']) }}" class="hover:text-primary-400 transition">Meja</a></li>
-                        <li><a href="{{ route('products.index', ['category' => 'sofas']) }}" class="hover:text-primary-400 transition">Sofa</a></li>
-                        <li><a href="{{ route('products.index', ['category' => 'beds']) }}" class="hover:text-primary-400 transition">Tempat Tidur</a></li>
-                        <li><a href="{{ route('products.index') }}" class="hover:text-primary-400 transition">Semua Produk</a></li>
+                        <li><a href="<?php echo e(route('products.index', ['category' => 'chairs'])); ?>" class="hover:text-primary-400 transition">Kursi</a></li>
+                        <li><a href="<?php echo e(route('products.index', ['category' => 'tables'])); ?>" class="hover:text-primary-400 transition">Meja</a></li>
+                        <li><a href="<?php echo e(route('products.index', ['category' => 'sofas'])); ?>" class="hover:text-primary-400 transition">Sofa</a></li>
+                        <li><a href="<?php echo e(route('products.index', ['category' => 'beds'])); ?>" class="hover:text-primary-400 transition">Tempat Tidur</a></li>
+                        <li><a href="<?php echo e(route('products.index')); ?>" class="hover:text-primary-400 transition">Semua Produk</a></li>
                     </ul>
                 </div>
                 <div>
@@ -163,7 +164,7 @@
                 </div>
             </div>
             <div class="border-t border-warm-800 mt-10 pt-6 flex flex-col md:flex-row items-center justify-between text-warm-500 text-sm">
-                <p>&copy; {{ date('Y') }} LuxeFurniture. All rights reserved.</p>
+                <p>&copy; <?php echo e(date('Y')); ?> LuxeFurniture. All rights reserved.</p>
                 <p class="mt-2 md:mt-0">Dibuat Dengan Penuh Rasa Cinta</p>
             </div>
         </div>
@@ -171,3 +172,4 @@
 
 </body>
 </html>
+<?php /**PATH C:\laragon\www\ecommerce-furniture\resources\views/layouts/app.blade.php ENDPATH**/ ?>

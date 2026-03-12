@@ -11,7 +11,7 @@ class ProductController extends Controller
     {
         $query = Product::query();
 
-        if ($request->category && in_array($request->category, ['chairs', 'tables', 'sofas'])) {
+        if ($request->category && in_array($request->category, ['chairs', 'tables', 'sofas', 'beds' ])) {
             $query->where('category', $request->category);
         }
 

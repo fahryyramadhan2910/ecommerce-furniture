@@ -13,7 +13,8 @@ class HomeController extends Controller
         $chairs   = Product::category('chairs')->take(3)->get();
         $tables   = Product::category('tables')->take(3)->get();
         $sofas    = Product::category('sofas')->take(3)->get();
+        $beds     = Product::category('beds')->take(3)->get();
 
-        return view('home.index', compact('featured', 'chairs', 'tables', 'sofas'));
+        return view('home.index', compact('featured', 'chairs', 'tables', 'sofas', 'beds'));
     }
 }

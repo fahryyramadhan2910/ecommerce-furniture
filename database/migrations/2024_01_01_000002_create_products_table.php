@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('description');
-            $table->enum('category', ['chairs', 'tables', 'sofas']);
+            $table->enum('category', ['chairs', 'tables', 'sofas', 'beds']);
             $table->decimal('price', 12, 2);
             $table->string('image')->nullable();
             $table->unsignedInteger('stock')->default(10);

@@ -1,5 +1,3 @@
-{{-- Shared form partial for create/edit --}}
-
 @php $product = $product ?? null; @endphp
 
 <div x-data="{ previewUrl: '{{ $product?->image_url ?? '' }}' }">

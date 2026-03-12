@@ -17,6 +17,7 @@
             <option value="chairs" @selected(request('category') === 'chairs')>Kursi</option>
             <option value="tables" @selected(request('category') === 'tables')>Meja</option>
             <option value="sofas" @selected(request('category') === 'sofas')>Sofa</option>
+            <option value="beds" @selected(request('category') === 'beds')>Tempat Tidur</option>
         </select>
         <button type="submit" class="btn-primary px-4 py-2.5">Filter</button>
     </form>

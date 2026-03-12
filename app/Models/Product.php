@@ -56,6 +56,7 @@ class Product extends Model
             'chairs' => 'Kursi',
             'tables' => 'Meja',
             'sofas'  => 'Sofa',
+            'beds'   => 'Tempat Tidur',
             default  => ucfirst($this->category),
         };
     }

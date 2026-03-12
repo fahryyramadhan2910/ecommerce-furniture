@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
                 'title'       => 'Scandinavian Oak Armchair',
                 'category'    => 'chairs',
                 'price'       => 2850000,
-                'image'       => 'https://images.unsplash.com/photo-1679079456783-5d862f755557?w=600&q=80',
+                'image'       => 'https://images.unsplash.com/photo-1758565204105-4085d36b8221?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8U2NhbmRpbmF2aWFuJTIwT2FrJTIwQXJtY2hhaXJ8ZW58MHx8MHx8fDA%3D',
                 'description' => 'Desain Skandinavia minimalis dengan rangka kayu oak solid dan dudukan berbalut kain linen premium. Nyaman untuk ruang tamu maupun ruang kerja Anda.',
                 'stock'       => 15,
                 'is_featured' => true,
@@ -52,7 +52,7 @@ class ProductSeeder extends Seeder
                 'title'       => 'Leather Executive Chair',
                 'category'    => 'chairs',
                 'price'       => 5500000,
-                'image'       => 'https://images.unsplash.com/photo-1589568192657-7bda3be5fb72?w=600&q=80',
+                'image'       => 'https://images.unsplash.com/photo-1579656381229-15bdb188da49?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TGVhdGhlciUyMENoYWlyfGVufDB8fDB8fHww',
                 'description' => 'Kursi eksekutif premium berlapis kulit asli full-grain. Dilengkapi penyangga lumbar, sandaran tangan, dan roda putar 360°.',
                 'stock'       => 5,
                 'is_featured' => true,
@@ -177,6 +177,26 @@ class ProductSeeder extends Seeder
                 'description' => 'Sofa aksen boho dengan rangka rotan anyaman tangan dan bantal duduk kapas organik. Membawa nuansa alam yang hangat ke dalam rumah Anda.',
                 'stock'       => 6,
                 'is_featured' => false,
+            ],
+            
+            // Produk Tempat Tidur //
+            [
+                'title'       => 'Modern Platform Bed',
+                'category'    => 'beds',
+                'price'       => 7500000,
+                'image'       => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmVkc3xlbnwwfHwwfHx8MA%3D%3D',
+                'description' => 'Tempat tidur platform modern dengan rangka kayu solid dan headboard berlapis kain. Desain minimalis yang cocok untuk berbagai gaya kamar tidur.',
+                'stock'       => 10,
+                'is_featured' => true,
+            ],
+            [
+                'title'       => 'Upholstered Storage Bed',
+                'category'    => 'beds',
+                'price'       => 9500000,
+                'image'       => 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                'description' => 'Tempat tidur dengan ruang penyimpanan tersembunyi di bawah kasur. Upholstery kain lembut dan rangka kayu kuat untuk kenyamanan dan fungsionalitas.',
+                'stock'       => 8,
+                'is_featured' => true,
             ],
         ];
 
