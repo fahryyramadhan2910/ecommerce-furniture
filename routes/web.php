@@ -33,6 +33,9 @@ Route::prefix('checkout')->name('checkout.')->group(function () {
     Route::get('/success/{invoice}', [CheckoutController::class, 'success'])->name('success');
 });
 
+// Midtrans Webhook
+Route::post('/payment/notification', [\App\Http\Controllers\PaymentCallbackController::class, 'notification'])->name('payment.notification');
+
 // ─── ADMIN ROUTES ────────────────────────────────────────────────────────────
 
 Route::prefix('admin')->name('admin.')->group(function () {

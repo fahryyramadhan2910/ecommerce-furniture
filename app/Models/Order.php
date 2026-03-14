@@ -11,7 +11,7 @@ class Order extends Model
 
     protected $fillable = [
         'invoice', 'name', 'email', 'phone',
-        'address', 'total', 'payment_method', 'status', 'notes',
+        'address', 'total', 'payment_method', 'status', 'notes', 'snap_token',
     ];
 
     protected function casts(): array
@@ -33,6 +33,10 @@ class Order extends Model
 
     public function getPaymentMethodLabelAttribute(): string
     {
+        if (empty($this->payment_method)) {
+            return 'Midtrans Gateway';
+        }
+
         return match($this->payment_method) {
             'bank_transfer' => 'Bank Transfer',
             'ovo'           => 'OVO',

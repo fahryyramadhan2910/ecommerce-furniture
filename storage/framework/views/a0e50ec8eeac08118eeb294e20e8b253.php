@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Semua Produk — Luxe Furniture'); ?>
 
 <?php $__env->startSection('content'); ?>
@@ -16,7 +18,7 @@
                   <?php echo e(!request('category') ? 'bg-primary-600 text-white shadow-md' : 'bg-white border border-warm-200 text-warm-700 hover:border-primary-400 hover:text-primary-600'); ?>">
             Semua (<?php echo e(\App\Models\Product::count()); ?>)
         </a>
-        <?php $__currentLoopData = ['chairs' => '🪑 Kursi', 'tables' => '🪵 Meja', 'sofas' => '🛋️ Sofa']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+        <?php $__currentLoopData = ['chairs' => '🪑 Kursi', 'tables' => '🪵 Meja', 'sofas' => '🛋️ Sofa', 'beds' => '🛏️ Tempat Tidur']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
         <a href="<?php echo e(route('products.index', ['category' => $key])); ?>"
            class="px-5 py-2.5 rounded-xl font-semibold text-sm transition-all duration-200
                   <?php echo e(request('category') == $key ? 'bg-primary-600 text-white shadow-md' : 'bg-white border border-warm-200 text-warm-700 hover:border-primary-400 hover:text-primary-600'); ?>">

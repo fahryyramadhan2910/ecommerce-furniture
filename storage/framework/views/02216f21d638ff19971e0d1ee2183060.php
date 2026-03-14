@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Manajemen Produk'); ?>
 <?php $__env->startSection('page_title', 'Manajemen Produk'); ?>
 <?php $__env->startSection('page_subtitle', 'Kelola semua produk furnitur toko Anda'); ?>
@@ -15,6 +17,7 @@
             <option value="chairs" <?php if(request('category') === 'chairs'): echo 'selected'; endif; ?>>Kursi</option>
             <option value="tables" <?php if(request('category') === 'tables'): echo 'selected'; endif; ?>>Meja</option>
             <option value="sofas" <?php if(request('category') === 'sofas'): echo 'selected'; endif; ?>>Sofa</option>
+            <option value="beds" <?php if(request('category') === 'beds'): echo 'selected'; endif; ?>>Tempat Tidur</option>
         </select>
         <button type="submit" class="btn-primary px-4 py-2.5">Filter</button>
     </form>

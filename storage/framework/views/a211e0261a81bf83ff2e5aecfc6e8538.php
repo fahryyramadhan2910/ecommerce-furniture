@@ -1,5 +1,3 @@
-
-
 <?php $product = $product ?? null; ?>
 
 <div x-data="{ previewUrl: '<?php echo e($product?->image_url ?? ''); ?>' }">
@@ -41,6 +39,7 @@ unset($__errorArgs, $__bag); ?>">
                 <option value="chairs" <?php if(old('category', $product?->category) === 'chairs'): echo 'selected'; endif; ?>>🪑 Kursi</option>
                 <option value="tables" <?php if(old('category', $product?->category) === 'tables'): echo 'selected'; endif; ?>>🪵 Meja</option>
                 <option value="sofas" <?php if(old('category', $product?->category) === 'sofas'): echo 'selected'; endif; ?>>🛋️ Sofa</option>
+                <option value="beds" <?php if(old('category', $product?->category) === 'beds'): echo 'selected'; endif; ?>>🛏️ Tempat Tidur</option>
             </select>
             <?php $__errorArgs = ['category'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

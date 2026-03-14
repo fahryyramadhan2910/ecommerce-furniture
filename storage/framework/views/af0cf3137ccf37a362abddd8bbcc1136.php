@@ -77,44 +77,55 @@
                 <svg class="w-5 h-5 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/>
                 </svg>
-                Info Pembayaran
+                Status Pembayaran
             </h3>
             <div class="space-y-2 text-sm text-warm-700">
-                <div><span class="font-semibold">Metode:</span> <?php echo e($order->payment_method_label); ?></div>
+                <div class="flex items-center gap-2">
+                    <span class="font-semibold">Batas Waktu:</span>
+                    <span class="text-amber-600">Terbatas</span>
+                </div>
                 <div class="flex items-center gap-2">
                     <span class="font-semibold">Status:</span>
                     <span class="<?php echo e($order->status_badge); ?>"><?php echo e(ucfirst($order->status)); ?></span>
                 </div>
             </div>
 
-            
-            <div class="mt-4 p-3 bg-amber-50 border border-amber-200 rounded-xl text-amber-800 text-xs leading-relaxed">
-                <?php if($order->payment_method === 'bank_transfer'): ?>
-                💳 Transfer ke <strong>BCA 1234-5678-90</strong> a/n <strong>PT Luxe Furniture Indonesia</strong>.<br>
-                Nominal: <strong><?php echo e($order->formatted_total); ?></strong>
-                <?php elseif($order->payment_method === 'ovo'): ?>
-                📱 Kirim ke OVO <strong>0812-3456-7890</strong> a/n <strong>Luxe Furniture</strong>.<br>
-                Nominal: <strong><?php echo e($order->formatted_total); ?></strong>
-                <?php elseif($order->payment_method === 'dana'): ?>
-                📱 Kirim ke Dana <strong>0812-3456-7890</strong> a/n <strong>Luxe Furniture</strong>.<br>
-                Nominal: <strong><?php echo e($order->formatted_total); ?></strong>
-                <?php else: ?>
-                📷 Scan QRIS di bawah atau tunjukkan kode QR kepada kasir.<br>
-                Nominal: <strong><?php echo e($order->formatted_total); ?></strong>
-                <?php endif; ?>
-            </div>
+            <?php if($order->status == 'pending'): ?>
+            <button id="pay-button" class="btn-primary w-full mt-5">
+                💳 Bayar Sekarang
+            </button>
+            <p class="text-xs text-warm-500 mt-2 text-center">Via Midtrans (Gopay, ShopeePay, Transfer Bank, dll)</p>
+            <?php endif; ?>
         </div>
     </div>
 
     
-    <div class="text-center space-y-3">
-        <a href="<?php echo e(route('home')); ?>" class="btn-primary mx-auto">
+    <div class="text-center space-y-3 mt-8">
+        <a href="<?php echo e(route('home')); ?>" class="btn-ghost mx-auto block w-fit">
             Kembali ke Beranda
         </a>
-        <br>
-        <a href="<?php echo e(route('products.index')); ?>" class="btn-ghost">Lanjut Belanja</a>
     </div>
 </div>
+
+<script src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="<?php echo e(config('services.midtrans.client_key')); ?>"></script>
+<script type="text/javascript">
+    document.getElementById('pay-button')?.addEventListener('click', function () {
+        snap.pay('<?php echo e($order->snap_token); ?>', {
+            onSuccess: function (result) {
+                window.location.reload();
+            },
+            onPending: function (result) {
+                window.location.reload();
+            },
+            onError: function (result) {
+                alert('Terdapat kesalahan saat memproses pembayaran Anda.');
+            },
+            onClose: function () {
+                console.log('User closed the popup without finishing the payment');
+            }
+        });
+    });
+</script>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.app', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH D:\ecommerce-furnitur\resources\views/checkout/success.blade.php ENDPATH**/ ?>

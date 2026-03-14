@@ -34,6 +34,7 @@
                     <a href="<?php echo e(route('products.index', ['category' => 'chairs'])); ?>" class="nav-link">Kursi</a>
                     <a href="<?php echo e(route('products.index', ['category' => 'tables'])); ?>" class="nav-link">Meja</a>
                     <a href="<?php echo e(route('products.index', ['category' => 'sofas'])); ?>" class="nav-link">Sofa</a>
+                    <a href="<?php echo e(route('products.index', ['category' => 'beds'])); ?>" class="nav-link">Tempat Tidur</a>
                 </div>
 
                 
@@ -72,6 +73,7 @@
                 <a href="<?php echo e(route('products.index', ['category' => 'chairs'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Kursi</a>
                 <a href="<?php echo e(route('products.index', ['category' => 'tables'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Meja</a>
                 <a href="<?php echo e(route('products.index', ['category' => 'sofas'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Sofa</a>
+                <a href="<?php echo e(route('products.index', ['category' => 'beds'])); ?>" class="block px-3 py-2 text-warm-700 hover:text-primary-600 font-medium rounded-lg hover:bg-warm-100 transition">Tempat Tidur</a>
             </div>
         </div>
     </nav>
@@ -132,6 +134,7 @@
                         <li><a href="<?php echo e(route('products.index', ['category' => 'chairs'])); ?>" class="hover:text-primary-400 transition">Kursi</a></li>
                         <li><a href="<?php echo e(route('products.index', ['category' => 'tables'])); ?>" class="hover:text-primary-400 transition">Meja</a></li>
                         <li><a href="<?php echo e(route('products.index', ['category' => 'sofas'])); ?>" class="hover:text-primary-400 transition">Sofa</a></li>
+                        <li><a href="<?php echo e(route('products.index', ['category' => 'beds'])); ?>" class="hover:text-primary-400 transition">Tempat Tidur</a></li>
                         <li><a href="<?php echo e(route('products.index')); ?>" class="hover:text-primary-400 transition">Semua Produk</a></li>
                     </ul>
                 </div>

@@ -1,3 +1,5 @@
+
+
 <?php $__env->startSection('title', 'Luxe Furniture — Premium Home Furniture'); ?>
 <?php $__env->startSection('meta_description', 'Koleksi furnitur premium pilihan untuk rumah impian Anda. Kualitas terbaik, desain elegan, harga terjangkau.'); ?>
 
@@ -74,7 +76,7 @@
                class="px-5 py-2 rounded-full border-2 border-warm-200 text-warm-700 font-semibold hover:border-primary-500 hover:text-primary-600 transition-all duration-200">
                 Semua
             </a>
-            <?php $__currentLoopData = ['chairs' => '🪑 Kursi', 'tables' => '🪵 Meja', 'sofas' => '🛋️ Sofa']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__currentLoopData = ['chairs' => '🪑 Kursi', 'tables' => '🪵 Meja', 'sofas' => '🛋️ Sofa', 'beds' => '🛏️ Tempat Tidur']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key => $label): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <a href="<?php echo e(route('products.index', ['category' => $key])); ?>"
                class="px-5 py-2 rounded-full border-2 border-warm-200 text-warm-700 font-semibold hover:border-primary-500 hover:text-primary-600 transition-all duration-200">
                 <?php echo e($label); ?>
@@ -155,9 +157,10 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <?php $__currentLoopData = [
-                ['label' => 'Kursi', 'key' => 'chairs', 'icon' => '🪑', 'img' => 'https://images.unsplash.com/photo-1679079456783-5d862f755557?w=800&q=80', 'desc' => 'Koleksi kursi ergonomis & dekoratif'],
+                ['label' => 'Kursi', 'key' => 'chairs', 'icon' => '🪑', 'img' => 'https://images.unsplash.com/photo-1540574163026-643ea20ade25?w=600&q=80', 'desc' => 'Koleksi kursi ergonomis & dekoratif'],
                 ['label' => 'Meja', 'key' => 'tables', 'icon' => '🪵', 'img' => 'https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=800&q=80', 'desc' => 'Meja makan, kerja & kopi premium'],
                 ['label' => 'Sofa', 'key' => 'sofas', 'icon' => '🛋️', 'img' => 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=80', 'desc' => 'Sofa mewah untuk ruang tamu Anda'],
+                ['label' => 'Tempat Tidur', 'key' => 'beds', 'icon' => '🛏️', 'img' => 'https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8YmVkc3xlbnwwfHwwfHx8MA%3D%3D', 'desc' => 'Tempat tidur nyaman untuk kenyamanan maksimal'],
             ]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $cat): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <a href="<?php echo e(route('products.index', ['category' => $cat['key']])); ?>"
                class="group relative overflow-hidden rounded-2xl shadow-lg aspect-[4/5] block">

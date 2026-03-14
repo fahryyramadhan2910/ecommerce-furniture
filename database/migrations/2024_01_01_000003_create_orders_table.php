@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('phone');
             $table->text('address');
             $table->decimal('total', 14, 2);
-            $table->enum('payment_method', ['bank_transfer', 'ovo', 'dana', 'qris']);
+            $table->string('payment_method')->nullable();
+            $table->string('snap_token')->nullable();
             $table->enum('status', ['pending', 'success', 'cancelled'])->default('pending');
             $table->text('notes')->nullable();
             $table->timestamps();
