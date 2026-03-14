@@ -33,7 +33,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
-            'category'    => 'required|in:chairs,tables,sofas',
+            'category'    => 'required|in:chairs,tables,sofas,beds',
             'price'       => 'required|numeric|min:0',
             'stock'       => 'required|integer|min:0',
             'is_featured' => 'nullable|boolean',
@@ -62,7 +62,7 @@ class ProductController extends Controller
         $data = $request->validate([
             'title'       => 'required|string|max:255',
             'description' => 'required|string',
-            'category'    => 'required|in:chairs,tables,sofas',
+            'category'    => 'required|in:chairs,tables,sofas,beds',
             'price'       => 'required|numeric|min:0',
             'stock'       => 'required|integer|min:0',
             'is_featured' => 'nullable|boolean',

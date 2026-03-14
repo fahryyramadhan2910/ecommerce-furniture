@@ -18,6 +18,7 @@
                 <option value="chairs" @selected(old('category', $product?->category) === 'chairs')>🪑 Kursi</option>
                 <option value="tables" @selected(old('category', $product?->category) === 'tables')>🪵 Meja</option>
                 <option value="sofas" @selected(old('category', $product?->category) === 'sofas')>🛋️ Sofa</option>
+                <option value="beds" @selected(old('category', $product?->category) === 'beds')>🛏️ Tempat Tidur</option>
             </select>
             @error('category') <p class="text-red-500 text-xs mt-1">{{ $message }}</p> @enderror
         </div>
