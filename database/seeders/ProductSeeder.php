@@ -198,6 +198,15 @@ class ProductSeeder extends Seeder
                 'stock'       => 8,
                 'is_featured' => true,
             ],
+            [
+                'title'       => 'Tolisin Beds',
+                'category'    => 'beds',
+                'price'       => 5500000,
+                'image'       => 'https://images.unsplash.com/photo-1560184897-502a475f7a0d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+                'description' => 'Kain sulam lebih halus dan tidak terasa pana',
+                'stock'       => 15,
+                'is_featured' => true,
+            ],
         ];
 
         foreach ($products as $data) {
